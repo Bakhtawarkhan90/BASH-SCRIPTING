@@ -1,0 +1,22 @@
+#!/bin/bash
+
+
+#this is for and while loops
+
+
+<<loop
+for (( i=1, i<=10, i++ ));
+do
+    echo "AWS"
+done
+loop
+#!/bin/bash
+
+#!/bin/bash
+
+# This script demonstrates a corrected for loop in Bash.
+
+for ((i=1; i<=10; i++)); do
+    echo "AWS"
+done
+

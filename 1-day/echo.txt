@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "Now i'm felling confident about linux"

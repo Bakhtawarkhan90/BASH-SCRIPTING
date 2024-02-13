@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#This is my world
+<< comment 
+anythin beetwen this
+ will not
+ execute 
+comment
+name="Jeremy Buendia"
+# to run  any command as variable the syntax is $(command)
+echo "My name is $name, and date is $(date)" 
+echo "enter the name:"
+read name 
+echo "you entere $name"
+echo "the names are  $1"

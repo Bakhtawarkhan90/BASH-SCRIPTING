@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# if-else conditions
+# read -p "enter girl name:" girl this is for promt # 
+
+#this is function  declaration/body
+function loyal () {
+echo  "enter the girl name:"
+read girl
+read -p "percentage of love:" love
+
+if [[ $girl == "wife" ]];
+then
+ echo "man is loyal"
+elif [[ $love -ge 100 ]];
+then 
+ echo "man is still loyal"
+else
+ echo "man is not loyal"
+fi
+}
+#this is function calling
+loyal
