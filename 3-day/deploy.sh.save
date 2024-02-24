@@ -1,0 +1,30 @@
+#!/bin/bash
+ <<task
+deploy a app & handle errors
+task
+
+code_clone() {
+ echo"Cloning the code"
+ git clone https://github.com/LondheShubham153/django-notes-app.git
+}
+  
+install_req() {
+ echo "Installing dependencies"
+ sudo apt-get install docker.io nginx -y
+}
+
+req_restart() {
+  sudo systemctl enable docker
+  sudo systemctl enable nginx
+}
+  
+deploy() {
+ docker build . -t notes-app
+ docker run -d -p 8000:8000 notes-app:latest
+}
+echo"*************DEPLOYMENT STARTED**********"
+code_clone
+install_req
+req_restart
+deploy
+echo"************DEPLOYMENT DONE*************"
