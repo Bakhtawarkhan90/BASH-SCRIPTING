@@ -1,5 +1,6 @@
 # BASH-SCRIPTING
-![Bash Scripting]()
+This repository contains a collection of Bash scripts for practicing Linux and installing various DevOps tools on Ubuntu.
+![Bash Scripting](s3lmmi8t)
 
 ## Scripts Included
 - `1update.sh`: Script to update the system.
