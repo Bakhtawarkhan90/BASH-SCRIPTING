@@ -1,5 +1,5 @@
 # BASH-SCRIPTING
-# This repository contains a collection of Bash scripts for practicing Linux and installing various DevOps tools on Ubuntu.
+#This repository contains a collection of Bash scripts for practicing Linux and installing various DevOps tools on Ubuntu.
 ![Bash Scripting](penguin.png)
 ## Scripts Included
 - `1update.sh`: Script to update the system.
