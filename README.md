@@ -1,5 +1,5 @@
 # BASH-SCRIPTING
-![Bash Scripting](sandbox:/mnt/data/sample_bash_script.png)
+![Bash Scripting]()
 
 ## Scripts Included
 - `1update.sh`: Script to update the system.
