@@ -41,13 +41,24 @@ sudo usermod -aG jenkins $USER
 echo "******************** Ensuring that the current user has been added to the Jenkins group ********************"
 getent group jenkins
 
-# Checking the status of Jenkins
-echo "******************** Checking the status of Jenkins ********************"
-sudo systemctl status jenkins
-
 # Displaying Jenkins administrator password
 echo "******************** Your Jenkins Administrator Password is below ********************"
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 # Jenkins is running on the default port 8080
 echo "******************** Jenkins is now running on default port 8080 ********************"
+
+# Downloading Docker and Docker Compose
+echo "****************************** Installing Docker and Docker Compose **************************"
+sudo apt update && sudo apt install -y docker.io docker-compose
+
+# Adding the currently logged-in user and Jenkins user to the Docker group
+echo "****************************** Adding users to Docker group **************************"
+sudo chown $USER /var/run/docker.sock
+sudo usermod -aG docker $USER && sudo usermod -aG docker jenkins
+
+# Starting SonarQube Container
+# Uncomment the following lines to start SonarQube
+# echo "****************************** Starting SonarQube Container **************************"
+# docker run -itd --name sonar -p 9000:9000 sonarqube:lts-community-alpine
+# docker start sonar
