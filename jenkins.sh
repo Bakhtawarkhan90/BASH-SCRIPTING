@@ -61,5 +61,5 @@ sudo usermod -aG docker $USER && sudo usermod -aG docker jenkins
 # Starting SonarQube Container
 # Uncomment the following lines to start SonarQube
 # echo "****************************** Starting SonarQube Container **************************"
-# docker run -itd --name sonar -p 9000:9000 sonarqube:lts-community-alpine
+# docker run -itd --name sonar -p 9000:9000 sonarqube:lts-community
 # docker start sonar
