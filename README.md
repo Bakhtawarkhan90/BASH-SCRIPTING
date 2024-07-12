@@ -18,6 +18,6 @@ git clone https://github.com/Bakhtawarkhan90/BASH-SCRIPTING.git
 cd BASH-SCRIPTING
 chmod +x script-name.sh
 ./script-name.sh
-
+```
 ## Note : ##
  After Running the script you need to reboot your instance 
