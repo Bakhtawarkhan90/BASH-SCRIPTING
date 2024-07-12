@@ -6,7 +6,7 @@ This repository contains a collection of Bash scripts for practicing Linux and i
 - `2if.sh`: Script demonstrating if-else statements.
 - `3loop.sh`: Script demonstrating loop constructs.
 - `4loop.sh`: Another script demonstrating loop constructs.
-- `Minikube.sh`: Script to install Minikube.       # It work's on t2.medium type instance or Localhost .
+- `Minikube.sh`: Script to install Minikube.     (Note: It work's on t2.medium type instance or Localhost)
 - `aws_cli.sh`: Script to install AWS CLI.
 - `jenkins-installation.sh`: Script to install Jenkins.
 - `terraform-install.sh`: Script to install Terraform.
