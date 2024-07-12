@@ -19,4 +19,5 @@ cd BASH-SCRIPTING
 chmod +x script-name.sh
 ./script-name.sh
 
-## Note : After Running the script you need to reboot your instance
+## Note : ##
+ After Running the script you need to reboot your instance 
