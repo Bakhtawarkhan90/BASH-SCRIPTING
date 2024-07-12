@@ -1,4 +1,5 @@
 #!/bin/bash
+# This script install jenkins , Docker , Docker-Compose #
 
 # First, update package lists to ensure we have the latest information
 echo "*************** Updating package lists ***************"
@@ -58,8 +59,4 @@ echo "****************************** Adding users to Docker group **************
 sudo chown $USER /var/run/docker.sock
 sudo usermod -aG docker $USER && sudo usermod -aG docker jenkins
 
-# Starting SonarQube Container
-# Uncomment the following lines to start SonarQube
-# echo "****************************** Starting SonarQube Container **************************"
-# docker run -itd --name sonar -p 9000:9000 sonarqube:lts-community
-# docker start sonar
+
