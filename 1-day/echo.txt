@@ -1,2 +1,3 @@
 #!/bin/bash
 echo "Now i'm felling confident about linux"
+echo  "Keep working hard to become a DevOps Engineer"
