@@ -58,5 +58,9 @@ sudo apt update && sudo apt install -y docker.io
 echo "****************************** Adding users to Docker group **************************"
 sudo chown $USER /var/run/docker.sock
 sudo usermod -aG docker $USER && sudo usermod -aG docker jenkins
+# Displaying Jenkins administrator password
+echo "******************** Your Jenkins Administrator Password is below ********************"
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+echo "Jenkins has installed succesfully access it on port 8080"
 
 
