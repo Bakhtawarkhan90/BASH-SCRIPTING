@@ -52,7 +52,7 @@ echo "******************** Jenkins is now running on default port 8080 *********
 
 # Downloading Docker and Docker Compose
 echo "****************************** Installing Docker and Docker Compose **************************"
-sudo apt update && sudo apt install -y docker.io docker-compose
+sudo apt update && sudo apt install -y docker.io 
 
 # Adding the currently logged-in user and Jenkins user to the Docker group
 echo "****************************** Adding users to Docker group **************************"
