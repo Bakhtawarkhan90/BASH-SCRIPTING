@@ -62,8 +62,10 @@ sudo usermod -aG docker $USER && sudo usermod -aG docker jenkins
 echo "******************** Your Jenkins Administrator Password is below ********************"
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 echo "Jenkins has installed succesfully access it on port 8080"
-echo "DOCKER & DOCKER-COMPOSE VERSION"
+echo "**************************DOCKER VERSION***************************"
 sudo docker --version
+echo "*********************DOCKER-COMPOSE VERSION*************************"
 sudo docker compose version
-
+echo "****************************JENKINS VERSION*************************"
+sudo jenkins --version
 
