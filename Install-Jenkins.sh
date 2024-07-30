@@ -52,8 +52,8 @@ echo "******************** Jenkins is now running on default port 8080 *********
 
 # Downloading Docker and Docker Compose
 echo "****************************** Installing Docker and Docker Compose **************************"
-sudo apt update && sudo apt install -y docker.io 
-
+sudo apt update && sudo apt-get install -y docker.io 
+sudo apt-get install docker-compose-v2
 # Adding the currently logged-in user and Jenkins user to the Docker group
 echo "****************************** Adding users to Docker group **************************"
 sudo chown $USER /var/run/docker.sock
@@ -62,5 +62,8 @@ sudo usermod -aG docker $USER && sudo usermod -aG docker jenkins
 echo "******************** Your Jenkins Administrator Password is below ********************"
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 echo "Jenkins has installed succesfully access it on port 8080"
+echo "DOCKER & DOCKER-COMPOSE VERSION"
+sudo docker --version
+sudo docker compose version
 
 
