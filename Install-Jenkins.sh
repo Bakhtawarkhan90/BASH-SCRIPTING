@@ -9,7 +9,7 @@ sudo apt-get update -y
 # The current version of Java is 17
 echo "*************** Installing Java for Jenkins ***************"
 sudo apt update
-sudo apt install fontconfig openjdk-17-jre
+sudo apt install -y fontconfig openjdk-17-jre
 java -version
 # Adding key for Jenkins repository
 echo "*************** Adding key for Jenkins repo ***************"
