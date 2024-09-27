@@ -10,13 +10,6 @@ sudo apt-get install -y docker.io
 echo "*********************************************** Add the current logged-in user to the Docker group ***************************************************"
 sudo chown $USER /var/run/docker.sock
 sudo usermod -aG $USER && newgrp docker
-
-echo "*********************************************** Install Docker Compose v2 ***************************************************"
-sudo apt-get install docker-compose-v2
-
-echo "*********************************************** Verify Docker Compose installation ***************************************************"
-docker compose version
-
 echo "*********************************************** Clone the repository ***************************************************"
 git clone https://github.com/Bakhtawarkhan90/Swiggy.git
 
@@ -24,10 +17,10 @@ echo "*********************************************** Change directory to the ne
 cd Swiggy
 
 echo "*********************************************** start the Docker containers defined in the docker-compose.yml file ***************************************************"
-docker compose up -d 
+docker run -d --name swiggy -p 3000:3000 bakhtawar375/swiggy:latest
 
 echo "*********************************************** Wait for Docker containers to be fully up and running ***************************************************"
-sleep 10
+sleep 5
 
 echo "*********************************************** Clear the screen ***************************************************"
 clear
