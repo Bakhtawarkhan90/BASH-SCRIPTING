@@ -57,7 +57,7 @@ sudo apt-get install docker-compose-v2
 # Adding the currently logged-in user and Jenkins user to the Docker group
 echo "****************************** Adding users to Docker group **************************"
 sudo chown $USER /var/run/docker.sock
-sudo usermod -aG docker $USER && sudo usermod -aG docker jenkins && newgrp docker
+sudo usermod -aG docker $USER && sudo usermod -aG docker jenkins 
 # Displaying Jenkins administrator password
 echo "******************** Your Jenkins Administrator Password is below ********************"
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
