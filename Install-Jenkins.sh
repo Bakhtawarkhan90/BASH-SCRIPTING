@@ -55,6 +55,10 @@ echo "****************************** Installing Docker and Docker Compose ******
 sudo apt update && sudo apt-get install -y docker.io 
 sudo apt-get install docker-compose-v2
 
+# Running Sonarqube throug Docker
+echo "******************** Running Sonarqube Docker Container *******************"
+docker run -d --name=sonar -p 9000:9000 sonarqube:lts-community
+
 # Installing Trivy
 curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sudo sh -s -- -b /usr/local/bin
 
@@ -62,9 +66,6 @@ curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/inst
 echo "****************************** Adding users to Docker group **************************"
 sudo chown $USER /var/run/docker.sock
 sudo usermod -aG docker $USER && sudo usermod -aG docker jenkins 
-# Displaying Jenkins administrator password
-echo "******************** Your Jenkins Administrator Password is below ********************"
-sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 echo "Jenkins has installed succesfully access it on  $(curl -s ifconfig.me):8080"
 echo "**************************DOCKER VERSION***************************"
 sudo docker --version
@@ -74,4 +75,8 @@ echo "****************************JENKINS VERSION*************************"
 sudo jenkins --version
 echo "****************************TRIVY VERSION*************************"
 trivy --version
+
+# Displaying Jenkins administrator password
+echo "******************** Your Jenkins Administrator Password is below ********************"
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
