@@ -54,6 +54,10 @@ echo "******************** Jenkins is now running on default port 8080 *********
 echo "****************************** Installing Docker and Docker Compose **************************"
 sudo apt update && sudo apt-get install -y docker.io 
 sudo apt-get install docker-compose-v2
+
+# Installing Trivy
+curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sudo sh -s -- -b /usr/local/bin
+
 # Adding the currently logged-in user and Jenkins user to the Docker group
 echo "****************************** Adding users to Docker group **************************"
 sudo chown $USER /var/run/docker.sock
@@ -68,4 +72,6 @@ echo "*********************DOCKER-COMPOSE VERSION*************************"
 sudo docker compose version
 echo "****************************JENKINS VERSION*************************"
 sudo jenkins --version
+echo "****************************TRIVY VERSION*************************"
+trivy --version
 
