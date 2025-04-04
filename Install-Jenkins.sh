@@ -69,6 +69,11 @@ curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/inst
 echo "****************************** Adding users to Docker group **************************"
 sudo chown $USER /var/run/docker.sock
 sudo usermod -aG docker $USER && sudo usermod -aG docker jenkins 
+
+# Running Sonarqube throug Docker
+echo "******************** Running Sonarqube Docker Container *******************"
+docker run -d --name=sonar -p 9000:9000 bakhtawar375/sonarqube:plugin
+
 echo "Jenkins has installed succesfully access it on  $(curl -s ifconfig.me):8080"
 echo "**************************DOCKER VERSION***************************"
 sudo docker --version
