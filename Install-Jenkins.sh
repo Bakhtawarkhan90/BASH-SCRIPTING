@@ -60,10 +60,6 @@ echo "****************************** Installing Docker and Docker Compose ******
 sudo apt update && sudo apt-get install -y docker.io 
 sudo apt-get install docker-compose-v2
 
-# Running Sonarqube throug Docker
-echo "******************** Running Sonarqube Docker Container *******************"
-docker run -d --name=sonar -p 9000:9000 bakhtawar375/sonarqube:plugin
-
 # Installing Trivy
 curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sudo sh -s -- -b /usr/local/bin
 
