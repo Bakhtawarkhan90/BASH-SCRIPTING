@@ -8,9 +8,11 @@ sudo apt-get update -y
 # Install the current version of Java because Jenkins requires it
 # The current version of Java is 17
 echo "*************** Installing Java for Jenkins ***************"
-sudo apt-get update -y
-sudo apt install openjdk-21-jdk -y
+sudo apt install fontconfig openjdk-17-jre
 java -version
+openjdk version "17.0.13" 2024-10-15
+OpenJDK Runtime Environment (build 17.0.13+11-Debian-2)
+OpenJDK 64-Bit Server VM (build 17.0.13+11-Debian-2, mixed mode, sharing)
 # Adding key for Jenkins repository
 echo "*************** Adding key for Jenkins repo ***************"
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
@@ -19,8 +21,8 @@ sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
 # Adding repository for automated installation
 echo "******************** Adding repository for automated installation ********************"
 echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
-  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
-  /etc/apt/sources.list.d/jenkins.list > /dev/null
+https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+/etc/apt/sources.list.d/jenkins.list > /dev/null
 
 # Updating the system to apply changes
 echo "******************** Updating your system to apply changes ********************"
