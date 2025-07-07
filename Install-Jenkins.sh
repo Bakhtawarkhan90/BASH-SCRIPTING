@@ -1,5 +1,5 @@
 #!/bin/bash
-# This script install jenkins , Docker , Docker-Compose #
+# This script install jenkins , Docker , Docker-Compose and Spnarqube#
 
 # First, update package lists to ensure we have the latest information
 echo "*************** Updating package lists ***************"
