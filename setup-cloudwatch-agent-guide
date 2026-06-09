@@ -1,0 +1,49 @@
+Setting up a disk space alarm requires an extra step compared to CPU or Network tracking.
+
+By default, the AWS hypervisor cannot peer inside your server's Operating System to see how full your hard drive is. To track **Free Disk Space**, you must install the **AWS CloudWatch Agent** on the instance so it can push that internal data up to CloudWatch.
+
+Additionally, the CloudWatch Agent measures **disk space used** rather than disk space free. Therefore, your goal of **Free Disk Space $\le$ 10%** translates to an alarm threshold of **`disk_used_percent` $\ge$ 90%**.
+
+---
+
+### Step 1: Give your Server Permission (IAM Role)
+
+Before installing the agent, your EC2 server needs permission to talk to CloudWatch.
+
+1. Open the **IAM Console**.
+2. Click **Roles** ──► **Create role**.
+3. Choose **AWS Service** and select **EC2**. Click **Next**.
+4. In the permissions search box, find and check **`CloudWatchAgentServerPolicy`**. Click **Next**.
+5. Name the role `EC2-CloudWatch-Agent-Role` and click **Create role**.
+6. Go back to your **EC2 Console**, check the box next to your server, click **Actions** ──► **Security** ──► **Modify IAM role**.
+7. Select your new `EC2-CloudWatch-Agent-Role` and save.
+
+---
+
+### Step 2: Install and Configure the Agent (On the Server)
+Run my Script in order to setup-cloudwatch-agent
+Copy this script into your server = setup-cloudwatch-agent.sh
+chmod 700 && ./setup-cloudwatch-agent.sh
+### Step 3: Create the CloudWatch Alarm
+
+Wait about 3 to 5 minutes for the agent to push its first data cycle up to AWS.
+
+1. Open the **CloudWatch Console**.
+2. Go to **Alarms** ──► **All alarms** ──► **Create alarm**.
+3. Click **Select metric**.
+4. You will now see a brand-new custom namespace category called **`CWAgent`**. Click it.
+5. Select **`InstanceId, device, fstype, path`**.
+6. Look for your Instance ID where the metric name is **`disk_used_percent`** and the path is **`/`**. Check the box and click **Select metric**.
+7. Under **Metric conditions**:
+* Change the **Period** to **5 minutes**.
+* Under *Conditions*, select **Static** ──► **Greater/Equal ($\ge$)**.
+* Define the threshold: Type **`90`** (meaning 90% full, which leaves exactly 10% or less free space). Click **Next**.
+
+
+8. Under **Configure actions**:
+* Trigger state: **In alarm**.
+* Select **Select an existing SNS topic** and choose the `Server-Alerts-Topic` we created earlier (which points to `support@serverguy.com`). Click **Next**.
+
+
+9. Name the alarm: `Server-Disk-Space-Critical`.
+10. Click **Next**, review the data, and click **Create alarm**.
