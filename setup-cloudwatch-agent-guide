@@ -18,6 +18,24 @@ Before installing the agent, your EC2 server needs permission to talk to CloudWa
 6. Go back to your **EC2 Console**, check the box next to your server, click **Actions** ──► **Security** ──► **Modify IAM role**.
 7. Select your new `EC2-CloudWatch-Agent-Role` and save.
 
+### In order to attach your IAM role to multiple Instance follow below steps
+
+Step 1: Open AWS CloudShell
+A). Log into your AWS Management Console.
+B). Click the CloudShell icon (>_) located in the top-right navigation bar (next to the search bar and notifications bell).
+C). Wait a few seconds for the terminal environment to launch.
+
+Step 2: Run the Bulk Attachment Command
+Copy the exact command below, paste it into your CloudShell terminal, and press Enter:
+
+```bash 
+
+for id in $(aws ec2 describe-instances --filters "Name=instance-state-name,Values=running,stopped" --query "Reservations[].Instances[].InstanceId" --output text); do
+    echo "Attaching role to instance: $id"
+    aws ec2 associate-iam-instance-profile --instance-id $id --iam-instance-profile Name=EC2-CloudWatch-Agent-Role
+done
+```
+
 ---
 
 ### Step 2: Install and Configure the Agent (On the Server)
