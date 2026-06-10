@@ -1,5 +1,5 @@
 #!/bin/bash
-
+                                                                        echo "###### This Script is for Ubuntu ######"
 # Exit immediately if a command exits with a non-zero status
 set -e
 
