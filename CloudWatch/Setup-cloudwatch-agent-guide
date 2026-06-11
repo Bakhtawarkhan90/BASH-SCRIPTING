@@ -64,4 +64,12 @@ Wait about 3 to 5 minutes for the agent to push its first data cycle up to AWS.
 
 
 9. Name the alarm: `Server-Disk-Space-Critical`.
+10. (Optional) Giving tag to AWS multiple server using AWS CLI
+aws ec2 create-tags \
+    --resources "i-0f5e5d42ae28ff694" "i-07f7d343c21b4c7ea" "i-030343d659679cbe3" \
+    --tags "Key=os,Value=Alma" \
+    --region ap-south-1
+
+
+
 10. Click **Next**, review the data, and click **Create alarm**.
