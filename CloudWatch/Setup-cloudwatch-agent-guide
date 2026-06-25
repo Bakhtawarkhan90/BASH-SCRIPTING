@@ -54,7 +54,7 @@ Wait about 3 to 5 minutes for the agent to push its first data cycle up to AWS.
 6. Look for your Instance ID where the metric name is **`disk_used_percent`** and the path is **`/`**. Check the box and click **Select metric**.
 7. Under **Metric conditions**:
 * Change the **Period** to **5 minutes**.
-* Under *Conditions*, select **Static** ──► **Greater/Equal ($\ge$)**.
+* Under *Conditions*, select **Static** ──► **Greater/Equal 90 **.
 * Define the threshold: Type **`90`** (meaning 90% full, which leaves exactly 10% or less free space). Click **Next**.
 
 
