@@ -70,7 +70,7 @@ sudo usermod -aG docker $USER && sudo usermod -aG docker jenkins
 
 # Running Sonarqube throug Docker
 echo "******************** Running Sonarqube Docker Container *******************"
-docker run -d --name=sonar -p 9000:9000 bakhtawar375/sonarqube:plugin
+docker run -d --name=sonar -p 9000:9000 bakhtawar375/sonarqube:lts-community
 
 echo "Jenkins has installed succesfully access it on  $(curl -s ifconfig.me):8080"
 echo "**************************DOCKER VERSION***************************"
